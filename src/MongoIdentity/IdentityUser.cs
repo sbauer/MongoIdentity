@@ -101,9 +101,6 @@ namespace MongoIdentity
             var existing =
                 Logins.FirstOrDefault(x => x.ProviderKey == info.ProviderKey && x.LoginProvider == info.LoginProvider);
 
-            if (existing == null)
-                return false;
-
             Logins.Remove(existing);
 
             return true;

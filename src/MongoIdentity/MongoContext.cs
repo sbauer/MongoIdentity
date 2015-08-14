@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using MongoIdentity.Exceptions;
 
 namespace MongoIdentity
 {
@@ -22,11 +23,11 @@ namespace MongoIdentity
         protected IMongoClient Client;
         public IMongoDatabase Database { get; private set; }
 
-        protected MongoContext()
+        protected MongoContext():this(null)
         {
-            SetConnectionStringName();
-            OpenSession();
+            
         }
+
         protected MongoContext(string connectionStringName)
         {
             SetConnectionStringName(connectionStringName);
@@ -38,10 +39,10 @@ namespace MongoIdentity
             var connectionInfo = ConfigurationManager.ConnectionStrings[_connectionStringName];
 
             if(connectionInfo == null)
-                throw new ApplicationException(String.Format("{0} connection string name not found in configuration file.", _connectionStringName));
+                throw new ConnectionStringNotFoundException(_connectionStringName);
 
             if(string.IsNullOrEmpty(connectionInfo.ConnectionString))
-                throw new ApplicationException(String.Format("{0} connection string cannot have any empty value.", _connectionStringName));
+                throw new EmptyConnectionStringException(_connectionStringName);
 
             var url = new MongoUrl(connectionInfo.ConnectionString);
             Client = new MongoClient(url);

@@ -187,5 +187,26 @@ namespace MongoIdentity.UnitTests
             user.RemoveLogin(login).ShouldBe(false);
         }
 
+        [Test]
+        public void IncrementFailureCountShouldIncreaseFailureTotal()
+        {
+            var user = IdentityUserMother.UserWithLogin();
+
+            user.FailedLoginAttempts.ShouldBe(0);
+
+            user.IncrementLoginFailureCount();
+
+            user.FailedLoginAttempts.ShouldBe(1);
+        }
+
+        [Test]
+        public void ResetLoginFailuresShouldSetCountToZero()
+        {
+            var user = IdentityUserMother.UserWithLogin();
+            user.IncrementLoginFailureCount();
+            user.ResetLoginFailureCount();
+
+            user.FailedLoginAttempts.ShouldBe(0);
+        }
     }
 }
