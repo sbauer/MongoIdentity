@@ -98,6 +98,7 @@
     <Compile Include="UserCreationTests.cs" />
     <Compile Include="UserDeletionTests.cs" />
     <Compile Include="UserEmailTests.cs" />
+    <Compile Include="UserLockoutTests.cs" />
     <Compile Include="UserLookupTests.cs" />
     <Compile Include="UserPasswordTests.cs" />
     <Compile Include="UserPhoneTests.cs" />

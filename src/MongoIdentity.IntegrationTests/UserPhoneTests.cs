@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using MongoIdentity.TestHelpers;
 using NUnit.Framework;
 using Shouldly;
 
@@ -56,6 +57,17 @@ namespace MongoIdentity.IntegrationTests
             found.PhoneNumber.ShouldBe("444-444-4444");
             found.PhoneNumberConfirmed.ShouldBe(true);
             UserManager.IsPhoneNumberConfirmed(user.Id).ShouldBe(true);
+        }
+
+        [Test]
+        public void CanGetPhoneNumber()
+        {
+            var user = IdentityUserMother.BasicUser();
+            user.PhoneNumber = "444-444-4444";
+
+            UserManager.Create(user);
+
+            UserManager.GetPhoneNumber(user.Id).ShouldBe(user.PhoneNumber);
         }
     }
 }

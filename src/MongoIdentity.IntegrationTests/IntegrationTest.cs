@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using MongoIdentity.TestHelpers;
 using NUnit.Framework;
 
 namespace MongoIdentity.IntegrationTests
@@ -35,6 +36,13 @@ namespace MongoIdentity.IntegrationTests
 
             RoleManager = new RoleManager<IdentityRole>(RoleStore);
 
+        }
+
+        protected IdentityUser CreateBasicUser()
+        {
+            var user = IdentityUserMother.BasicUser();
+            UserManager.Create(user);
+            return user;
         }
     }
 
