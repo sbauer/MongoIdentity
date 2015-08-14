@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using MongoIdentity.TestHelpers;
 using NUnit.Framework;
 using Shouldly;
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security.DataProtection;
 using NUnit.Framework;
 
 namespace MongoIdentity.IntegrationTests
@@ -28,6 +30,9 @@ namespace MongoIdentity.IntegrationTests
             UserStore = new UserStore<IdentityUser,IdentityRole>(Context);
             RoleStore = new RoleStore<IdentityRole,IdentityUser>(Context);
             UserManager = new UserManager<IdentityUser>(UserStore);
+            var provider = new DpapiDataProtectionProvider("identity-test");
+            UserManager.UserTokenProvider = new DataProtectorTokenProvider<IdentityUser>(provider.Create("EmailConfirm"));
+
             RoleManager = new RoleManager<IdentityRole>(RoleStore);
 
         }

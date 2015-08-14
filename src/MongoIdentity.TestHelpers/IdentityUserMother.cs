@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 
-namespace MongoIdentity.UnitTests
+namespace MongoIdentity.TestHelpers
 {
     public class IdentityUserMother
     {
         public static IdentityUser EmptyUser()
         {
             return new IdentityUser();
+        }
+
+        public static IdentityUser BasicUser(string username = "test", string email="test@testing.com")
+        {
+            return new IdentityUser() {EmailAddress = email, UserName = username};
         }
 
         public static IdentityUser UserWithTestRole()

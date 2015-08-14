@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoIdentity.IntegrationTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B74CABF2-B628-45FF-8427-72F2E93A0FE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoIdentity.TestHelpers", "MongoIdentity.TestHelpers\MongoIdentity.TestHelpers.csproj", "{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{C236AB0C-4325-4A3D-BA1B-0C3D8E27036D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C236AB0C-4325-4A3D-BA1B-0C3D8E27036D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C236AB0C-4325-4A3D-BA1B-0C3D8E27036D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9651D50F-B81F-47A4-B18E-0F28DFFDBFA1} = {B74CABF2-B628-45FF-8427-72F2E93A0FE3}
 		{C236AB0C-4325-4A3D-BA1B-0C3D8E27036D} = {B74CABF2-B628-45FF-8427-72F2E93A0FE3}
+		{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42} = {B74CABF2-B628-45FF-8427-72F2E93A0FE3}
 	EndGlobalSection
 EndGlobal

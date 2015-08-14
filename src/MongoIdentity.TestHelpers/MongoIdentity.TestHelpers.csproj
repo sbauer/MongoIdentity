@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9651D50F-B81F-47A4-B18E-0F28DFFDBFA1}</ProjectGuid>
+    <ProjectGuid>{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MongoIdentity.UnitTests</RootNamespace>
-    <AssemblyName>MongoIdentity.UnitTests</AssemblyName>
+    <RootNamespace>MongoIdentity.TestHelpers</RootNamespace>
+    <AssemblyName>MongoIdentity.TestHelpers</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,14 +46,6 @@
       <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Shouldly, Version=2.5.0.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
-      <HintPath>..\packages\Shouldly.2.5.0\lib\net40\Shouldly.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,21 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IdentityUserTests.cs" />
+    <Compile Include="ClaimMother.cs" />
+    <Compile Include="IdentityUserMother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MongoIdentity.TestHelpers\MongoIdentity.TestHelpers.csproj">
-      <Project>{B5F4AB6E-1E2C-41F8-8D38-2FD39D303A42}</Project>
-      <Name>MongoIdentity.TestHelpers</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MongoIdentity\MongoIdentity.csproj">
       <Project>{3F73AD72-F5E1-42AE-AE07-0F36E3544DE2}</Project>
       <Name>MongoIdentity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
