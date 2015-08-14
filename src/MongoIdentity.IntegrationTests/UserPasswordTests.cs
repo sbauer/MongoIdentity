@@ -49,5 +49,42 @@ namespace MongoIdentity.IntegrationTests
 
             result.ShouldBe(true);
         }
+
+        [Test]
+        public void CanEnableTwoFactorAuthentication()
+        {
+            var user = CreateBasicUser();
+
+            var result = UserManager.SetTwoFactorEnabled(user.Id, true);
+
+            result.Succeeded.ShouldBe(true);
+
+            var existing = UserManager.FindById(user.Id);
+
+            existing.TwoFactorEnabled.ShouldBe(true);
+        }
+
+        [Test]
+        public void CanDisableTwoFactorAuthentication()
+        {
+            var user = CreateBasicUser();
+
+            UserManager.SetTwoFactorEnabled(user.Id, true);
+            UserManager.SetTwoFactorEnabled(user.Id, false);
+
+            var existing = UserManager.FindById(user.Id);
+
+            existing.TwoFactorEnabled.ShouldBe(false);
+        }
+
+        [Test]
+        public void CanGetTwoFactorStatus()
+        {
+            var user = CreateBasicUser();
+
+            UserManager.SetTwoFactorEnabled(user.Id, true);
+
+            UserManager.GetTwoFactorEnabled(user.Id).ShouldBe(true);
+        }
     }
 }

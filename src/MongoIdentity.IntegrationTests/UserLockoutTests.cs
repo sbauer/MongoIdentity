@@ -58,5 +58,18 @@ namespace MongoIdentity.IntegrationTests
             result.Succeeded.ShouldBe(true);
             newUser.LockedOutUntilUtc.ShouldNotBe(null);
         }
+
+        [Test]
+        public void CanGetLockoutTime()
+        {
+            DateTime lockoutTime = DateTime.UtcNow.AddDays(1);
+            var user = CreateBasicUser();
+
+            UserManager.SetLockoutEnabled(user.Id, true);
+
+            UserManager.SetLockoutEndDate(user.Id, lockoutTime);
+            UserManager.GetLockoutEndDate(user.Id).Date.ShouldBe(lockoutTime.Date);
+            
+        }
     }
 }
