@@ -290,7 +290,10 @@ namespace MongoIdentity
         {
             EnsureUser(user);
 
-            return Task.FromResult(user.IncrementLoginFailureCount());
+            user.FailedLoginAttempts = user.FailedLoginAttempts + 1;
+
+
+            return Task.FromResult(user.FailedLoginAttempts);
         }
 
         public Task ResetAccessFailedCountAsync(TUser user)

@@ -71,5 +71,46 @@ namespace MongoIdentity.IntegrationTests
             UserManager.GetLockoutEndDate(user.Id).Date.ShouldBe(lockoutTime.Date);
             
         }
+
+        [Test]
+        public void CanGetFailedAttempts()
+        {
+            var user = CreateBasicUser();
+            user.IncrementLoginFailureCount();
+
+            UserManager.Update(user);
+
+            UserManager.GetAccessFailedCount(user.Id).ShouldBe(1);
+        }
+
+        [Test]
+        public void CanResetFailedAttempts()
+        {
+            var user = CreateBasicUser();
+            user.IncrementLoginFailureCount();
+
+            UserManager.Update(user);
+
+            UserManager.ResetAccessFailedCount(user.Id);
+
+            user = UserManager.FindById(user.Id);
+            user.FailedLoginAttempts.ShouldBe(0);
+        }
+
+        [Test]
+        public void CanIncrementFailedAttempts()
+        {
+            UserManager.MaxFailedAccessAttemptsBeforeLockout = 5;
+
+            var user = CreateBasicUser();
+
+            var result = UserManager.AccessFailed(user.Id);
+
+            result.Succeeded.ShouldBe(true);
+            UserManager.GetAccessFailedCount(user.Id).ShouldBe(1);
+           
+
+        }
+
     }
 }
