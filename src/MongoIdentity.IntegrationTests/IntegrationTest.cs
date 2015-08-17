@@ -44,6 +44,13 @@ namespace MongoIdentity.IntegrationTests
             UserManager.Create(user);
             return user;
         }
+
+        protected IdentityRole CreateBasicRole()
+        {
+            var role = new IdentityRole() {Name = "Test"};
+            RoleManager.Create(role);
+            return role;
+        }
     }
 
     public class TestMongoContext : MongoContext<IdentityUser, IdentityRole>
