@@ -20,7 +20,7 @@ namespace MongoIdentity.IntegrationTests
 
             var email = UserManager.GetEmail(user.Id);
 
-            email.ShouldBe(user.EmailAddress);
+            email.ShouldBe(user.Email);
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace MongoIdentity.IntegrationTests
             var newUser = UserManager.FindById(user.Id);
 
             result.Succeeded.ShouldBe(true);
-            newUser.EmailAddress.ShouldBe("new@testing.com");
+            newUser.Email.ShouldBe("new@testing.com");
             newUser.EmailConfirmed.ShouldBe(false);
         }
 

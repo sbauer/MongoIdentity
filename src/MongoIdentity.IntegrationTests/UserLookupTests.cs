@@ -26,7 +26,7 @@ namespace MongoIdentity.IntegrationTests
         [Test]
         public void ShouldBeAbleToGetUserByEmail()
         {
-            var user = new IdentityUser() { UserName = "test", EmailAddress = "test@testing.com"};
+            var user = new IdentityUser() { UserName = "test", Email = "test@testing.com"};
 
             UserManager.Create(user);
 
@@ -38,7 +38,7 @@ namespace MongoIdentity.IntegrationTests
         [Test]
         public void ShouldBeAbleToGetUserById()
         {
-            var user = new IdentityUser() { UserName = "test", EmailAddress = "test@testing.com" };
+            var user = new IdentityUser() { UserName = "test", Email = "test@testing.com" };
 
             UserManager.Create(user);
 

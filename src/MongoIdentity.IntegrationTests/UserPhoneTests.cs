@@ -15,7 +15,7 @@ namespace MongoIdentity.IntegrationTests
         [Test]
         public void HasPhoneConfirmedShouldBeFalseIfNoPhone()
         {
-            var user = new IdentityUser() {UserName = "test", EmailAddress = "test@test.com"};
+            var user = new IdentityUser() {UserName = "test", Email = "test@test.com"};
 
             UserManager.Create(user);
 
@@ -26,7 +26,7 @@ namespace MongoIdentity.IntegrationTests
         [Test]
         public void CanSetPhoneNumber()
         {
-            var user = new IdentityUser() { UserName = "test", EmailAddress = "test@test.com" };
+            var user = new IdentityUser() { UserName = "test", Email = "test@test.com" };
 
             UserManager.Create(user);
 
@@ -42,7 +42,7 @@ namespace MongoIdentity.IntegrationTests
         [Test]
         public void CanVerifyPhoneNumber()
         {
-            var user = new IdentityUser() { UserName = "test", EmailAddress = "test@test.com" };
+            var user = new IdentityUser() { UserName = "test", Email = "test@test.com" };
 
             UserManager.Create(user);
 

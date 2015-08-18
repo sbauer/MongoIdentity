@@ -15,7 +15,7 @@ namespace MongoIdentity.IntegrationTests
         [Test]
         public void CanDeleteExistingUser()
         {
-            var user = new IdentityUser() {UserName = "test", EmailAddress = "test@test.com"};
+            var user = new IdentityUser() {UserName = "test", Email = "test@test.com"};
 
             var createResult = UserManager.Create(user);
             createResult.Succeeded.ShouldBe(true);

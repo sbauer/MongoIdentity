@@ -168,7 +168,7 @@ namespace MongoIdentity
         {
             EnsureUser(user);
 
-            user.EmailAddress = email;
+            user.Email = email;
 
             return Task.FromResult(true);
         }
@@ -177,7 +177,7 @@ namespace MongoIdentity
         {
             EnsureUser(user);
 
-            return Task.FromResult(user.EmailAddress);
+            return Task.FromResult(user.Email);
         }
 
         public Task<bool> GetEmailConfirmedAsync(TUser user)
@@ -198,7 +198,7 @@ namespace MongoIdentity
 
         public Task<TUser> FindByEmailAsync(string email)
         {
-            return _context.Users.Find(x => x.EmailAddress.ToLower() == email.ToLower()).FirstOrDefaultAsync();
+            return _context.Users.Find(x => x.Email.ToLower() == email.ToLower()).FirstOrDefaultAsync();
         }
 
         public Task<IList<Claim>> GetClaimsAsync(TUser user)

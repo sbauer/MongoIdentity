@@ -12,7 +12,7 @@ namespace MongoIdentity.TestHelpers
 
         public static IdentityUser BasicUser(string username = "test", string email="test@testing.com")
         {
-            return new IdentityUser() {EmailAddress = email, UserName = username};
+            return new IdentityUser() {Email = email, UserName = username};
         }
 
         public static IdentityUser UserWithTestRole()

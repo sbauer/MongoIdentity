@@ -23,7 +23,7 @@ namespace MongoIdentity
         public string Id { get; private set; }
         public string UserName { get; set; }
 
-        public virtual string EmailAddress { get; set; }
+        public virtual string Email { get; set; }
 
         public virtual bool EmailConfirmed { get; set; }
 
